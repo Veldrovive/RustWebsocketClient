@@ -74,6 +74,11 @@ pub mod ws {
             //         self.read();
             //     }
             // });
+            #[derive(Deserialize)]
+            struct Blank {}
+            self.on("ping".to_string(), |_: Blank| {
+                Some("pong".to_string())
+            });
             loop {
                 self.read().unwrap();
                 thread::sleep(Duration::from_millis(1));
